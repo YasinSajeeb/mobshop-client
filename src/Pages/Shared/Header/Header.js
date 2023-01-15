@@ -12,19 +12,19 @@ const Header = () => {
     // }
 
     const menuItems = <>
-        <li className='hover:text-[#fb6230]'><Link to='/'>Home</Link></li>
-        <li className='hover:text-[#fb6230]'></li>
-        <li className='hover:text-[#fb6230]'><Link to='/blogs'>Blogs</Link></li>
+        <li className='hover:text-yellow-500'><Link to='/'>Home</Link></li>
+        <li className='hover:text-yellow-500'></li>
+        <li className='hover:text-yellow-500'><Link to='/blogs'>Blogs</Link></li>
         {/* <li>{
             user?.uid ?
                 <>
-                    <Link className='hover:text-[#fb6230]' to='/dashboard'>Dashboard</Link>
-                    <button onClick={handleLogOut} className="btn btn-ghost border-0 rounded-none hover:rounded-none hover:text-[#fb6230]">LogOut</button>
+                    <Link className='hover:text-yellow-500' to='/dashboard'>Dashboard</Link>
+                    <button onClick={handleLogOut} className="btn btn-ghost border-0 rounded-none hover:rounded-none hover:text-yellow-500">LogOut</button>
                 </>
                 :
                 <>
-                    <Link className='hover:text-[#fb6230]' to='/login'>Login</Link>
-                    <Link className='hover:text-[#fb6230]' to='/signup'>Sign Up</Link>
+                    <Link className='hover:text-yellow-500' to='/login'>Login</Link>
+                    <Link className='hover:text-yellow-500' to='/signup'>Sign Up</Link>
                 </>
         }</li> */}
     </>

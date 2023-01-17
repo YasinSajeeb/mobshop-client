@@ -1,0 +1,17 @@
+[
+    {
+        "id": "01",
+        "category": "samsung",
+        "logo": "https://i.ibb.co/s2Xv52D/360-197-1.webp"
+    },
+    {
+        "id": "02",
+        "category": "iPhone",
+        "logo": "https://i.ibb.co/vxnwd8s/Apple-logo-black-svg.png"
+    },
+    {
+        "id": "03",
+        "category": "xiomi",
+        "logo": "https://i.ibb.co/q0NjW8y/Xiaomi-logo-2021-svg.png"
+    }
+]

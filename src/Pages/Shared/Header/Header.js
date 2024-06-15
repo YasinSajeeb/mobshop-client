@@ -1,21 +1,30 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../../Context/AuthProvider';
-// import { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
 
 const Header = () => {
-    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(e => console.error(e))
-    // }
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.error(e))
+    }
+
+    const { data: mobiles = [] } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch('https://mobshop-server-85ytyuke2-yasinsajeebs-projects.vercel.app/mobiles');
+            const data = await res.json();
+            return data;
+        }
+    });
 
     const menuItems = <>
         <li className='hover:text-yellow-500'><Link to='/'>Home</Link></li>
-        <li className='hover:text-yellow-500'></li>
         <li className='hover:text-yellow-500'><Link to='/blogs'>Blogs</Link></li>
-        {/* <li>{
+        <li>{
             user?.uid ?
                 <>
                     <Link className='hover:text-yellow-500' to='/dashboard'>Dashboard</Link>
@@ -26,7 +35,7 @@ const Header = () => {
                     <Link className='hover:text-yellow-500' to='/login'>Login</Link>
                     <Link className='hover:text-yellow-500' to='/signup'>Sign Up</Link>
                 </>
-        }</li> */}
+        }</li>
     </>
     return (
         <div className="navbar mt-0 my-2 lg:px-28 lg:py-4 lg:sticky lg:bg-[#252931] top-0 z-50 mb-0">
@@ -45,7 +54,6 @@ const Header = () => {
                         <div className='mr-5 lg:text-white'><span className='text-4xl font-bold'>Mob<span className='text-yellow-500'>Shop</span></span></div>
                     </div>
                 </Link>
-                {/*  */}
 
             </div>
 
@@ -57,7 +65,7 @@ const Header = () => {
             </div>
             <div className="navbar-end ">
 
-                {/* <ul className="  menu menu-horizontal p-0 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none mr-3 text-[#fb6230]">
+                <ul className="  menu menu-horizontal p-0 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none mr-3 text-[#fb6230]">
                     <ul >
                         {
                             user?.uid ?
@@ -66,7 +74,7 @@ const Header = () => {
                                 <></>
                         }
                     </ul>
-                </ul> */}
+                </ul>
                 
             </div>
         </div>

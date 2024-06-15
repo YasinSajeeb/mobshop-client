@@ -5,7 +5,7 @@ const HomeCategory = ({category}) => {
     const {category:brand, logo, id} = category;
     return (
         <div>
-            <Link to={`/laptops/${id}`}>
+            <Link to={`/mobiles/${id}`}>
                 <div className="card bg-base-100 shadow-xl transition ease-in-out delay-130  hover:-translate-y-1 hover:scale-110 duration-200 border-t-8 border-yellow-500 rounded-t-lg">
                     <figure className="p4">
                         <img src={logo} alt="" className="rounded-xl h-16 mt-8" />

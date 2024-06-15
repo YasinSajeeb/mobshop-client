@@ -6,12 +6,12 @@ const HomeCategories = () => {
     const { data: allCategories = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('mobiles.json');
+            const res = await fetch('https://mobshop-server-85ytyuke2-yasinsajeebs-projects.vercel.app/mobiles');
             const data = await res.json();
             return data;
         }
     });
-    
+
     return (
         <div id='brands' className='lg:my-20 lg:px-28 m-5'>
             <h1 className="lg:mb-5 text-3xl font-bold py-1 text-center">Explore By <span className='text-yellow-500'>Brands</span></h1>

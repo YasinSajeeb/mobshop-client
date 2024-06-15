@@ -6,7 +6,7 @@ const HomeCategories = () => {
     const { data: allCategories = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/mobiles');
+            const res = await fetch('https://mobshop-server-85ytyuke2-yasinsajeebs-projects.vercel.app/mobiles');
             const data = await res.json();
             return data;
         }

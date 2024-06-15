@@ -15,6 +15,10 @@ import MyBookings from "../../Pages/Dashboard/MyBookings/MyBookings";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 export const router = createBrowserRouter([
     {
@@ -43,14 +47,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/mobiles/:id',
-                element: <MobileDetails></MobileDetails>,
+                element: <PrivateRoute><MobileDetails></MobileDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`https://mobshop-server-85ytyuke2-yasinsajeebs-projects.vercel.app/mobiles/${params.id}`)
             }
         ]
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
                 path:'/dashboard',
@@ -58,20 +62,20 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/mybookings',
-                element: <MyBookings></MyBookings>
+                element: <BuyerRoute><MyBookings></MyBookings></BuyerRoute>
             },
             {
                 path:'/dashboard/allusers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path:'/dashboard/addproduct',
-                element: <AddProduct></AddProduct>,
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>,
                 loader: () => fetch(`https://mobshop-server-85ytyuke2-yasinsajeebs-projects.vercel.app/mobiles`)
             },
             {
                 path:'/dashboard/myproducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
         ]
     },
